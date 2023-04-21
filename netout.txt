@@ -1,0 +1,19 @@
+
+
+
+"ovs-ofctl dump-ports s1"
+
+'OFPST_PORT reply (xid=0x2): 4 ports\n  port LOCAL: rx pkts=0, bytes=0, drop=156, errs=0, frame=0, over=0, crc=0\n           tx pkts=0, bytes=0, drop=0, errs=0, coll=0\n  port  1: rx pkts=60, bytes=5638, drop=0, errs=0, frame=0, over=0, crc=0\n           tx pkts=157, bytes=15040, drop=0, errs=0, coll=0\n  port  2: rx pkts=80, bytes=7070, drop=0, errs=0, frame=0, over=0, crc=0\n           tx pkts=151, bytes=14644, drop=0, errs=0, coll=0\n  port  3: rx pkts=79, bytes=6980, drop=0, errs=0, frame=0, over=0, crc=0\n           tx pkts=153, bytes=14824, drop=0, errs=0, coll=0'
+
+"ovs-ofctl dump-flows s1"
+
+'NXST_FLOW reply (xid=0x4):\n cookie=0x0, duration=919.342s, table=0, n_packets=213, n_bytes=19128, idle_age=54, priority=0 actions=CONTROLLER:128'
+
+"ovs-ofctl dump-ports-desc s1"
+
+'OFPST_PORT_DESC reply (xid=0x2):\n 1(s1-eth1): addr:0a:e6:b0:c9:7a:5a\n     config:     0\n     state:      0\n     current:    10GB-FD COPPER\n     speed: 10000 Mbps now, 0 Mbps max\n 2(s1-eth2): addr:c2:d5:31:02:f4:99\n     config:     0\n     state:      0\n     current:    10GB-FD COPPER\n     speed: 10000 Mbps now, 0 Mbps max\n 3(s1-eth3): addr:aa:71:fa:37:5a:b2\n     config:     0\n     state:      0\n     current:    10GB-FD COPPER\n     speed: 10000 Mbps now, 0 Mbps max\n LOCAL(s1): addr:fe:46:68:9d:6b:4d\n     config:     PORT_DOWN\n     state:      LINK_DOWN\n     speed: 0 Mbps now, 0 Mbps max'
+
+"ovs-ofctl dump-tables s1"
+
+'OFPST_TABLE reply (xid=0x2):\n  table 0:\n    active=1, lookup=217, matched=217\n    max_entries=1000000\n    matching:\n      exact match or wildcard: in_port eth_{src,dst,type} vlan_{vid,pcp} ip_{src,dst} nw_{proto,tos} tcp_{src,dst}\n\n  table 1:\n    active=0, lookup=0, matched=0\n    (same features)\n\n  tables 2...253: ditto'
+
